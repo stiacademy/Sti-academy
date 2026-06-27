@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>STI Academy - Register</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        body { margin:0; font-family:Arial; background:#f5f7fb; }
+
+        header {
+            background:#0f172a;
+            color:white;
+            text-align:center;
+            padding:15px;
+        }
+
+        nav {
+            background:#1e293b;
+            text-align:center;
+            padding:10px;
+        }
+
+        nav a {
+            color:white;
+            margin:10px;
+            text-decoration:none;
+        }
+
+        .container { padding:20px; }
+
+        .card {
+            background:white;
+            padding:15px;
+            border-radius:10px;
+            margin-bottom:15px;
+        }
+
+        .payment-box {
+            background:#e0f2fe;
+            padding:15px;
+            border-radius:10px;
+            margin-bottom:15px;
+        }
+
+        input, select {
+            width:100%;
+            padding:10px;
+            margin:8px 0;
+            border:1px solid #ccc;
+            border-radius:5px;
+        }
+
+        button {
+            width:100%;
+            padding:10px;
+            background:#2563eb;
+            color:white;
+            border:none;
+            border-radius:5px;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<header>
+    <h2>STI Academy Registration</h2>
+</header>
+
+<nav>
+    <a href="index.html">Home</a>
+    <a href="courses.html">Courses</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="register.html">Register</a>
+</nav>
+
+<div class="container">
+
+    <!-- PAYMENT DETAILS DISPLAYED HERE -->
+    <div class="payment-box">
+        <h3>💳 Payment Details</h3>
+        <p><b>Bank:</b> OPAY</p>
+        <p><b>Account Name:</b> Lauretta Osayame Ogboe</p>
+        <p><b>Account Number:</b> 9159641570</p>
+        <p>After payment, fill the form below and submit.</p>
+    </div>
+
+    <!-- FORM -->
+    <div class="card">
+        <h3>Student Registration Form</h3>
+
+        <form id="regForm">
+
+            <input type="text" id="name" placeholder="Full Name" required>
+
+            <input type="tel" id="phone" placeholder="Phone Number" required>
+
+            <input type="email" id="email" placeholder="Email (optional)">
+
+            <select id="course" required>
+                <option value="">Select Course</option>
+                <option value="Web Development">Web Development</option>
+                <option value="Graphic Design">Graphic Design</option>
+                <option value="Video Editing">Video Editing</option>
+                <option value="Social Media Management">Social Media Management</option>
+            </select>
+
+            <input type="text" id="location" placeholder="Location">
+
+            <button type="submit">I Have Paid - Submit</button>
+
+        </form>
+    </div>
+
+</div>
+
+<script>
+document.getElementById("regForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let name = document.getElementById("name").value;
+    let phone = document.getElementById("phone").value;
+    let email = document.getElementById("email").value;
+    let course = document.getElementById("course").value;
+    let location = document.getElementById("location").value;
+
+    let message =
+`*🎓 STI Academy Payment Confirmation*
+
+I have paid for this course, please confirm.
+
+Name: ${name}
+Phone: ${phone}
+Email: ${email}
+Course: ${course}
+Location: ${location}`;
+
+    let whatsappNumber = "2348131525874";
+
+    let url = "https://wa.me/" + whatsappNumber + "?text=" + encodeURIComponent(message);
+
+    window.open(url, "_blank");
+});
+</script>
+
+</body>
+</html>
